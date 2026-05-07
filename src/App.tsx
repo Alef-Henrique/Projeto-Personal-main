@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import FotoPersonal from "./assets/foto-personal.jpg";
+
 import {
   motion,
   AnimatePresence,
@@ -291,7 +291,7 @@ export default function App() {
             >
               <div className="absolute inset-0 bg-brand/20 blur-[100px] -z-10" />
               <img 
-                src={FotoPersonal} 
+                src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80"
                 alt="Personal Trainer"
                 className="rounded-3xl shadow-2xl brightness-90 saturate-50"
                 referrerPolicy="no-referrer"
