@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
+import FotoPersonal from "./assets/foto-personal.jpg";
 import {
   motion,
   AnimatePresence,
@@ -10,7 +12,7 @@ import {
   animate
 } from 'framer-motion';
 import { 
-  Dumbbell, 
+  Dumbbell,   
   Flame, 
   Target, 
   Users, 
@@ -289,7 +291,7 @@ export default function App() {
             >
               <div className="absolute inset-0 bg-brand/20 blur-[100px] -z-10" />
               <img 
-                src="src/assets/foto1.png" 
+                src={FotoPersonal} 
                 alt="Personal Trainer"
                 className="rounded-3xl shadow-2xl brightness-90 saturate-50"
                 referrerPolicy="no-referrer"
