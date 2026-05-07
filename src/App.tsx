@@ -97,25 +97,55 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="absolute top-full left-0 w-full bg-dark border-b border-white/10 flex flex-col overflow-hidden md:hidden"
           >
-            <div className="p-6 flex flex-col gap-6">
-              {['Sobre', 'Resultados', 'Planos', 'Galeria'].map((item) => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
-                  className="text-lg font-bold uppercase tracking-widest hover:text-brand"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-              <a 
-                href="#contato" 
-                className="w-full text-center py-4 bg-brand text-dark font-black uppercase tracking-widest rounded-sm"
-                onClick={() => setIsMobileMenuOpen(false)}
+          <div className="p-6 flex flex-col gap-6">
+            {[
+              { label: 'Sobre', id: 'sobre' },
+              { label: 'Resultados', id: 'resultados' },
+              { label: 'Planos', id: 'planos' },
+              { label: 'Galeria', id: 'galeria' },
+            ].map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="text-lg font-bold uppercase tracking-widest hover:text-brand transition-colors"
+                onClick={(e) => {
+                  e.preventDefault()
+
+                  document
+                    .getElementById(item.id)
+                    ?.scrollIntoView({
+                      behavior: 'smooth',
+                    })
+
+                  setTimeout(() => {
+                  setIsMobileMenuOpen(false)
+                }, 300)
+                }}
               >
-                Agendar Agora
+                {item.label}
               </a>
-            </div>
+            ))}
+
+            <a
+              href="#contato"
+              className="w-full text-center py-4 bg-brand text-dark font-black uppercase tracking-widest rounded-sm"
+              onClick={(e) => {
+                e.preventDefault()
+
+                document
+                  .getElementById('contato')
+                  ?.scrollIntoView({
+                    behavior: 'smooth',
+                  })
+
+                setTimeout(() => {
+                  setIsMobileMenuOpen(false)
+                }, 300)
+              }}
+            >
+              Agendar Agora
+            </a>
+          </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -241,7 +271,7 @@ export default function App() {
             <span className="inline-block px-4 py-1 border border-brand text-brand text-[10px] font-black tracking-widest uppercase mb-6 rounded-full">
               Elite Performance Coaching
             </span>
-            <h1 className="text-6xl md:text-8xl lg:text-7xl mb-8 leading-none max-w-4xl mx-auto">
+            <h1 className="text-5xl sm:text-4xl md:text-6xl mb-8 leading-none max-w-4xl mx-auto">
               Transforme Seu <span className="text-brand">Corpo</span> e Sua <span className="italic">Mentalidade</span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
@@ -483,7 +513,7 @@ export default function App() {
           viewport={{ once: true }}
           className="container mx-auto px-6 relative z-10"
         >
-          <p className="text-brand font-black text-6xl md:text-8xl mb-8 uppercase opacity-20 select-none">LIMITE ZERO</p>
+          <p className="text-brand font-black text-4xl md:text-5xl mb-8 uppercase opacity-20 select-none">LIMITE ZERO</p>
           <blockquote className="text-4xl md:text-5xl font-black max-w-4xl mx-auto uppercase leading-tight">
             "Sua mente desistirá mil vezes antes do seu corpo. <span className="text-brand">Deseje mais.</span> Trabalhe mais."
           </blockquote>
@@ -501,9 +531,9 @@ export default function App() {
             href="#" 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-12 py-6 bg-dark text-white font-black text-xl md:text-2xl rounded-sm uppercase tracking-widest inline-flex items-center gap-4 shadow-2xl"
+            className="inline-flex items-center gap-2 px-4 py-2.5 md:px-8 md:py-4 bg-dark text-white font-bold uppercase tracking-wider rounded-full text-xs md:text-base transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(57,255,20,0.25)]"
           >
-            QUERO TRANSFORMAR MEU CORPO <MessageCircle className="fill-current" />
+            QUERO TRANSFORMAR MEU CORPO 
           </motion.a>
         </div>
       </section>
